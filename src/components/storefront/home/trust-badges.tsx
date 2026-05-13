@@ -28,25 +28,36 @@ const badges = [
 
 export function TrustBadges() {
   return (
-    <section className="border-y bg-background py-12">
+    <section className="border-y bg-background py-14">
       <div className="container-wide">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-          {badges.map((badge, i) => (
-            <motion.div
-              key={badge.title}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="flex flex-col items-center text-center"
-            >
-              <badge.icon size={28} className="text-foreground" strokeWidth={1.5} />
-              <h3 className="mt-3 text-sm font-semibold">{badge.title}</h3>
-              <p className="mt-1 text-xs text-muted-foreground">
-                {badge.description}
-              </p>
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
+          {badges.map((badge, i) => {
+            const Icon = badge.icon;
+            return (
+              <motion.div
+                key={badge.title}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="group flex items-center gap-4"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-stone-100 transition-colors group-hover:bg-amber-700/10">
+                  <Icon
+                    size={20}
+                    className="text-foreground transition-colors group-hover:text-amber-700"
+                    strokeWidth={1.75}
+                  />
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold">{badge.title}</h3>
+                  <p className="mt-0.5 text-xs text-muted-foreground">
+                    {badge.description}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

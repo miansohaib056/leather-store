@@ -95,6 +95,10 @@ async function main() {
       weight: 85,
       isFeatured: true,
       categorySlug: "wallets",
+      images: [
+        "https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=1200&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=1200&auto=format&fit=crop",
+      ],
       variants: [
         { name: "Brown", color: "Brown", stock: 25, price: 89.00 },
         { name: "Black", color: "Black", stock: 18, price: 89.00 },
@@ -112,6 +116,9 @@ async function main() {
       weight: 35,
       isFeatured: true,
       categorySlug: "accessories",
+      images: [
+        "https://images.unsplash.com/photo-1612902456551-404b5b7c4040?q=80&w=1200&auto=format&fit=crop",
+      ],
       variants: [
         { name: "Cognac", color: "Cognac", stock: 30, price: 49.00 },
         { name: "Black", color: "Black", stock: 22, price: 49.00 },
@@ -128,6 +135,10 @@ async function main() {
       weight: 180,
       isFeatured: true,
       categorySlug: "belts",
+      images: [
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1200&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=1200&auto=format&fit=crop",
+      ],
       variants: [
         { name: "32", size: "32", stock: 15, price: 75.00 },
         { name: "34", size: "34", stock: 20, price: 75.00 },
@@ -147,6 +158,10 @@ async function main() {
       weight: 1800,
       isFeatured: true,
       categorySlug: "bags",
+      images: [
+        "https://images.unsplash.com/photo-1547949003-9792a18a2601?q=80&w=1200&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1564422170194-896b89110ef8?q=80&w=1200&auto=format&fit=crop",
+      ],
       variants: [
         { name: "Brown", color: "Brown", stock: 8, price: 349.00 },
         { name: "Dark Brown", color: "Dark Brown", stock: 5, price: 349.00 },
@@ -160,7 +175,12 @@ async function main() {
       basePrice: 279.00,
       material: "Top Grain Leather",
       weight: 1200,
+      isFeatured: true,
       categorySlug: "bags",
+      images: [
+        "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1590739225497-56fdba0f5cdf?q=80&w=1200&auto=format&fit=crop",
+      ],
       variants: [
         { name: "Dark Brown", color: "Dark Brown", stock: 12, price: 279.00 },
         { name: "Black", color: "Black", stock: 10, price: 279.00 },
@@ -175,18 +195,89 @@ async function main() {
       material: "Full Grain Leather",
       weight: 40,
       categorySlug: "accessories",
+      images: [
+        "https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=1200&auto=format&fit=crop",
+      ],
       variants: [
         { name: "Brown", color: "Brown", stock: 40, price: 29.00 },
         { name: "Black", color: "Black", stock: 35, price: 29.00 },
+      ],
+    },
+    {
+      name: "Travel Passport Holder",
+      slug: "travel-passport-holder",
+      description: "<p>Slim passport holder with slots for cards and travel documents. Made from buttery soft full-grain leather. The perfect companion for international travel.</p>",
+      shortDescription: "Leather passport holder with card slots",
+      basePrice: 65.00,
+      material: "Full Grain Leather",
+      weight: 90,
+      isFeatured: true,
+      categorySlug: "accessories",
+      images: [
+        "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=1200&auto=format&fit=crop",
+      ],
+      variants: [
+        { name: "Saddle Brown", color: "Brown", stock: 18, price: 65.00 },
+        { name: "Black", color: "Black", stock: 15, price: 65.00 },
+      ],
+    },
+    {
+      name: "Minimalist Tote Bag",
+      slug: "minimalist-tote-bag",
+      description: "<p>An everyday tote with timeless silhouette. Spacious interior, leather handles, and an interior zip pocket. Perfect for work or weekend errands.</p>",
+      shortDescription: "Premium leather tote for everyday use",
+      basePrice: 199.00,
+      material: "Top Grain Leather",
+      weight: 950,
+      isFeatured: true,
+      categorySlug: "bags",
+      images: [
+        "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=1200&auto=format&fit=crop",
+      ],
+      variants: [
+        { name: "Cognac", color: "Cognac", stock: 14, price: 199.00 },
+        { name: "Black", color: "Black", stock: 11, price: 199.00 },
+      ],
+    },
+    {
+      name: "Woven Leather Belt",
+      slug: "woven-leather-belt",
+      description: "<p>Hand-woven leather belt with antique brass buckle. A distinctive piece that pairs beautifully with casual and dress wear alike.</p>",
+      shortDescription: "Hand-woven leather belt with brass buckle",
+      basePrice: 95.00,
+      compareAtPrice: 130.00,
+      material: "Full Grain Leather",
+      weight: 220,
+      categorySlug: "belts",
+      images: [
+        "https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=1200&auto=format&fit=crop",
+      ],
+      variants: [
+        { name: "32", size: "32", stock: 10, price: 95.00 },
+        { name: "34", size: "34", stock: 15, price: 95.00 },
+        { name: "36", size: "36", stock: 12, price: 95.00 },
       ],
     },
   ];
 
   for (const p of products) {
     const category = categories.find((c) => c.slug === p.categorySlug);
+    const productImages = (p as { images?: string[] }).images ?? [];
+
     const product = await prisma.product.upsert({
       where: { slug: p.slug },
-      update: {},
+      update: {
+        name: p.name,
+        description: p.description,
+        shortDescription: p.shortDescription,
+        basePrice: p.basePrice,
+        compareAtPrice: p.compareAtPrice || null,
+        material: p.material,
+        careInstructions: p.careInstructions || null,
+        weight: p.weight || null,
+        isFeatured: p.isFeatured || false,
+        isActive: true,
+      },
       create: {
         name: p.name,
         slug: p.slug,
@@ -214,7 +305,22 @@ async function main() {
         },
       },
     });
-    console.log(`Product: ${product.name}`);
+
+    if (productImages.length > 0) {
+      await prisma.productImage.deleteMany({ where: { productId: product.id } });
+      await prisma.productImage.createMany({
+        data: productImages.map((url, i) => ({
+          productId: product.id,
+          url,
+          publicId: `seed_${product.slug}_${i}`,
+          alt: product.name,
+          sortOrder: i,
+          isPrimary: i === 0,
+        })),
+      });
+    }
+
+    console.log(`Product: ${product.name} (${productImages.length} images)`);
   }
 
   await prisma.coupon.upsert({

@@ -1,10 +1,10 @@
 export const mainNav = [
-  { label: "New Arrivals", href: "/categories/new-arrivals" },
+  { label: "Shop", href: "/products" },
   { label: "Wallets", href: "/categories/wallets" },
-  { label: "Belts", href: "/categories/belts" },
   { label: "Bags", href: "/categories/bags" },
+  { label: "Belts", href: "/categories/belts" },
   { label: "Accessories", href: "/categories/accessories" },
-  { label: "Blog", href: "/blog" },
+  { label: "Journal", href: "/blog" },
 ] as const;
 
 export const footerNav = {

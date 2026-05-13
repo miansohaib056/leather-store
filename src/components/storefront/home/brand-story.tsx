@@ -1,40 +1,43 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
 
 export function BrandStory() {
   return (
     <section className="section-padding">
       <div className="container-wide">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="relative lg:col-span-6"
           >
-            <div className="aspect-[4/5] overflow-hidden rounded-lg">
-              <div
-                className="h-full w-full bg-cover bg-center"
-                style={{
-                  backgroundImage:
-                    "url('https://images.unsplash.com/photo-1531926733929-0e1c0e30ed21?q=80&w=1000&auto=format&fit=crop')",
-                }}
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
+              <Image
+                src="https://images.unsplash.com/photo-1531926733929-0e1c0e30ed21?q=80&w=1200&auto=format&fit=crop"
+                alt="Leather craftsmanship"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 hidden rounded-lg border-4 border-background bg-primary p-8 text-center lg:block">
-              <p className="font-heading text-4xl font-bold text-primary-foreground">
-                25+
-              </p>
-              <p className="mt-1 text-sm text-primary-foreground/80">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="absolute -bottom-6 -right-6 hidden rounded-3xl border-8 border-background bg-gradient-to-br from-amber-700 via-amber-800 to-stone-900 p-8 text-center shadow-xl lg:block"
+            >
+              <p className="font-heading text-5xl font-bold text-white">25+</p>
+              <p className="mt-2 text-xs font-medium uppercase tracking-[0.2em] text-white/70">
                 Years of Craft
               </p>
-            </div>
+            </motion.div>
           </motion.div>
 
           <motion.div
@@ -42,16 +45,15 @@ export function BrandStory() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-6"
           >
-            <p className="text-sm font-medium uppercase tracking-[0.3em] text-gold">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-700">
               Our Heritage
             </p>
-            <h2 className="mt-4 font-heading text-3xl font-bold md:text-4xl">
-              A Legacy of
-              <br />
-              Leather Mastery
+            <h2 className="mt-3 font-heading text-3xl font-bold leading-tight md:text-5xl">
+              A legacy of leather mastery
             </h2>
-            <div className="mt-6 space-y-4 text-muted-foreground">
+            <div className="mt-6 space-y-4 text-base text-muted-foreground">
               <p>
                 For over two decades, our family has been dedicated to the art
                 of leather crafting. What began as a small workshop has grown
@@ -59,28 +61,22 @@ export function BrandStory() {
               </p>
               <p>
                 Every piece we create is a testament to our commitment to
-                quality. We source only the finest full-grain leather, work
-                with skilled artisans, and ensure that each stitch meets our
-                exacting standards.
-              </p>
-              <p>
-                From the careful selection of hides to the final quality
-                inspection, every step in our process reflects generations of
-                expertise passed down through our family.
+                quality — only the finest full-grain leather, skilled artisans,
+                and exacting standards that get better with every passing year.
               </p>
             </div>
 
-            <div className="mt-8 grid grid-cols-3 gap-6">
+            <div className="mt-10 grid grid-cols-3 gap-6 border-y border-border/60 py-6">
               {[
-                { value: "10K+", label: "Happy Customers" },
-                { value: "100%", label: "Genuine Leather" },
+                { value: "10K+", label: "Customers" },
+                { value: "100%", label: "Genuine" },
                 { value: "2 Year", label: "Warranty" },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <p className="font-heading text-2xl font-bold text-foreground">
+                  <p className="font-heading text-3xl font-bold tracking-tight">
                     {stat.value}
                   </p>
-                  <p className="mt-1 text-xs text-muted-foreground">
+                  <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">
                     {stat.label}
                   </p>
                 </div>
@@ -88,14 +84,11 @@ export function BrandStory() {
             </div>
 
             <Link
-              href="/pages/our-craft"
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "mt-8 rounded-none"
-              )}
+              href="/blog"
+              className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-amber-700"
             >
-              Read Our Story
-              <ArrowRight className="ml-2 h-4 w-4" />
+              Read our story
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </motion.div>
         </div>

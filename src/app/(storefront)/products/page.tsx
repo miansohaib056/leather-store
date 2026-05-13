@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default async function ProductsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string; sort?: string; minPrice?: string; maxPrice?: string; material?: string }>;
+  searchParams: Promise<{ page?: string; sort?: string; minPrice?: string; maxPrice?: string; material?: string; search?: string }>;
 }) {
   const params = await searchParams;
   const page = Number(params.page) || 1;
@@ -22,14 +22,17 @@ export default async function ProductsPage({
     minPrice: params.minPrice ? Number(params.minPrice) : undefined,
     maxPrice: params.maxPrice ? Number(params.maxPrice) : undefined,
     material: params.material,
+    search: params.search,
   });
 
   return (
     <div className="container-wide section-padding">
       <div className="mb-8">
-        <h1 className="font-heading text-3xl font-bold md:text-4xl">All Products</h1>
+        <h1 className="font-heading text-3xl font-bold md:text-4xl">
+          {params.search ? `Search: "${params.search}"` : "All Products"}
+        </h1>
         <p className="mt-2 text-muted-foreground">
-          {total} product{total !== 1 ? "s" : ""}
+          {total} product{total !== 1 ? "s" : ""} {params.search ? "found" : ""}
         </p>
       </div>
 
